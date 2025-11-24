@@ -30,7 +30,7 @@ body{
   text-align:center;
 
   /* 🔥 Aquí va tu imagen como fondo */
-  background: url("Imagen Final para Glowder.jpeg") center/contain no-repeat,
+  background: url("../img/Imagen Final para Glowder.jpeg") center/contain no-repeat,
               linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.85));
 
   border-bottom: 1px solid rgba(255,255,255,0.03);
@@ -96,3 +96,4 @@ ul{margin-left:20px; color:var(--muted);}
   h1{font-size:1.6rem}
   .container{padding:18px}
 }
+
