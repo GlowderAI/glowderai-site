@@ -1,65 +1,195 @@
+/* ==== VARIABLES GLOBALES (RAÍZ) ==== */
+/* Definimos nuestros colores aquí para reusarlos fácilmente */
 :root {
-  --bg-1: #071028;
-  --bg-2: #0b1220;
-  --accent: #7c5cff;
-  --muted: #9aa8bf;
-  --card: rgba(255,255,255,0.03);
-  --white: #e6eef8;
+  --bg-dark: #0a0a1a; /* Fondo principal oscuro */
+  --bg-card: #12122b; /* Fondo de las tarjetas */
+  --text-light: #f0f0f0; /* Texto principal */
+  --text-accent: #00bfff; /* Acento (DeepSkyBlue) o puedes usar tu morado/azul */
+  --border-color: rgba(0, 191, 255, 0.2); /* Borde sutil */
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+/* ==== RESETEO BÁSICO ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Esto hace que el padding no afecte el ancho total */
+}
+
+html {
+  /* Esto es para la Fase 3, prepara el 'smooth scroll' */
+  scroll-behavior: smooth; 
+}
 
 body {
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
-  color: var(--white);
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente limpia y moderna */
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* HERO SOLO IMAGEN BANNER */
-.hero {
+ul {
+  list-style: none; /* Quitamos los puntos de las listas */
+}
+
+a {
+  text-decoration: none; /* Quitamos el subrayado de los enlaces */
+  color: var(--text-accent);
+}
+
+h1, h2, h3 {
+  color: var(--text-accent); /* Títulos con color de acento */
+  margin-bottom: 1rem;
+}
+
+/* ==== CLASE UTILITARIA "CONTAINER" ==== */
+/* Esta clase la usamos en el HTML para centrar el contenido */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+/* ==== NAVEGACIÓN (FASE 1.2 ESTILIZADA) ==== */
+.navbar {
+  position: fixed; /* ¡Importante! Fija el navbar arriba */
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 420px; /* altura del hero */
-  background: url("../img/Glowderr.png") center/cover no-repeat;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background-color: rgba(10, 10, 26, 0.85); /* Fondo oscuro semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto "vidrio esmerilado" */
+  padding: 1rem 0;
+  z-index: 1000; /* Se asegura que esté por encima de todo */
+  border-bottom: 1px solid var(--border-color);
 }
 
-/* CARDS */
-section {
-  max-width: 920px;
-  margin: 28px auto;
-  padding: 0 18px;
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* Pone el logo a la izq. y nav a la der. */
+  align-items: center;
 }
 
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-light); /* Hacemos el logo blanco para que resalte */
+}
+
+.navbar nav ul {
+  display: flex; /* Pone los enlaces en horizontal */
+  gap: 1.5rem; /* Espacio entre cada enlace */
+}
+
+.navbar nav a {
+  color: var(--text-light);
+  font-weight: 500;
+  transition: color 0.3s ease; /* Transición suave para el hover */
+}
+
+.navbar nav a:hover {
+  color: var(--text-accent); /* Cambia a color acento al pasar el mouse */
+}
+
+/* ==== CUERPO PRINCIPAL ==== */
+/* ¡Importante! Añadimos un padding superior al 'main'
+   para que el primer contenido no quede OCULTO detrás del navbar fijo */
+main {
+  padding-top: 80px; /* Ajusta este valor si tu navbar es más alto */
+}
+
+/* ==== HERO (BANNER) (FASE 1.1 ESTILIZADA) ==== */
+.hero {
+  /* Aquí usamos tu imagen de fondo */
+  background-image: url('../img/Glowder Fondo.jpg'); 
+  background-size: cover; /* Cubre todo el espacio */
+  background-position: center; /* Se centra */
+  background-repeat: no-repeat;
+  
+  min-height: 80vh; /* Altura mínima de 80% de la ventana */
+  display: flex; /* Usamos Flexbox... */
+  align-items: center; /* ...para centrar verticalmente... */
+  justify-content: center; /* ...y horizontalmente el contenido */
+  text-align: center;
+  color: white; /* Color del texto del Hero */
+}
+
+.hero-content {
+  /* Damos un fondo sutil al texto para que resalte sobre la imagen */
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 4rem; /* Texto GRANDE para "GLOWDER" */
+  font-weight: 900;
+  color: white; /* Sobreescribimos el color de acento */
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.5rem; /* Eslogan más grande */
+  font-weight: 300;
+  color: #f0f0f0;
+}
+
+/* ==== SECCIONES DE CONTENIDO ==== */
+.content-section {
+  padding: 4rem 0; /* Espacio vertical entre secciones */
+  border-bottom: 1px solid var(--border-color);
+}
+.content-section:last-of-type {
+  border-bottom: none; /* La última sección no necesita borde */
+}
+
+/* ==== TARJETAS (.card) (FASE 2 INTERACTIVIDAD) ==== */
 .card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 14px;
-  border: 1px solid rgba(124,92,255,0.06);
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-top: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
-h2 {
-  color: var(--accent);
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+.card:hover {
+  /* ¡Efecto hover profesional! */
+  transform: translateY(-5px); /* Se eleva 5px */
+  box-shadow: 0 10px 20px rgba(0, 191, 255, 0.1);
 }
 
-p { color: var(--white); margin-bottom: 8px; }
+.card ul {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
 
+.card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==== BOTÓN DE CONTACTO (CTA) (FASE 1.3 ESTILIZADA) ==== */
+.cta {
+  display: inline-block; /* Para que podamos darle padding */
+  background-color: var(--text-accent);
+  color: var(--bg-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #00a0d0; /* Un poco más oscuro al pasar el mouse */
+  color: white;
+  transform: scale(1.05); /* Se agranda un poco */
+}
+
+/* ==== PIE DE PÁGINA (FOOTER) ==== */
 .footer {
   text-align: center;
-  padding: 18px;
-  color: #94a3b8;
-  font-size: 0.95rem;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.03);
-}
-
-/* RESPONSIVE */
-@media (max-width:600px){
-  .hero { height: 260px; }
-  h2 { font-size: 1.1rem; }
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: #aaa;
 }
