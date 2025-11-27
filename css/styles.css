@@ -99,7 +99,7 @@ main {
 /* ==== HERO (BANNER) (FASE 1.1 ESTILIZADA) ==== */
 .hero {
   /* Aquí usamos tu imagen de fondo */
-  background-image: url('../img/Glowder Fondo.jpg'); 
+  background-image: url('../img/glowder-fondo.jpg'); 
   background-size: cover; /* Cubre todo el espacio */
   background-position: center; /* Se centra */
   background-repeat: no-repeat;
@@ -193,3 +193,4 @@ main {
   font-size: 0.9rem;
   color: #aaa;
 }
+
