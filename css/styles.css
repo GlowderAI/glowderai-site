@@ -1,91 +1,65 @@
-/* css/styles.css - Estilos para Glowder AI */
-:root{
+:root {
   --bg-1: #071028;
   --bg-2: #0b1220;
   --accent: #7c5cff;
   --muted: #9aa8bf;
   --card: rgba(255,255,255,0.03);
-  --glass: rgba(255,255,255,0.04);
   --white: #e6eef8;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
 
-body{
+body {
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
-  color:var(--white);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.6;
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  color: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* HERO con imagen de fondo */
-.hero{
-  padding:120px 18px; /* más altura tipo hero */
-  text-align:center;
-
-  background: 
-        linear-gradient(180deg, rgba(0,0,0,0.70), rgba(0,0,0,0.92)),
-        url("../img/Imagen Final para Glowder.jpeg") center/cover no-repeat;
-
+/* HERO SOLO IMAGEN BANNER */
+.hero {
+  width: 100%;
+  height: 420px; /* altura del hero */
+  background: url("../img/Imagen Final para Glowder.jpeg") center/cover no-repeat;
   border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
-.logo{
-  display:none;
+/* CARDS */
+section {
+  max-width: 920px;
+  margin: 28px auto;
+  padding: 0 18px;
 }
 
-h1{
-  font-size:2.8rem;
-  margin-bottom:6px;
-  letter-spacing:0.8px;
-  font-weight:700;
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 14px;
+  border: 1px solid rgba(124,92,255,0.06);
 }
 
-.tagline{
-  color:var(--muted);
-  margin-top:8px;
-  font-size:1.1rem;
+h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
-section{
-  max-width:920px;
-  margin:28px auto;
-  padding:0 18px;
+p { color: var(--white); margin-bottom: 8px; }
+
+.footer {
+  text-align: center;
+  padding: 18px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.03);
 }
 
-/* Tarjetas */
-.card{
-  background:var(--card);
-  padding:20px;
-  border-radius:12px;
-  margin-top:14px;
-  border:1px solid rgba(124,92,255,0.06);
-}
-
-h2{
-  color:var(--accent);
-  margin-bottom:10px;
-  font-size:1.3rem;
-}
-
-p{
-  color:var(--white);
-  margin-bottom:8px;
-}
-
-.footer{
-  text-align:center;
-  padding:18px;
-  color:#94a3b8;
-  font-size:0.95rem;
-  margin-top:40px;
-  border-top:1px solid rgba(255,255,255,0.03);
-}
-
+/* RESPONSIVE */
 @media (max-width:600px){
-  h1{font-size:2rem}
-  .hero{padding:90px 16px;}
+  .hero { height: 260px; }
+  h2 { font-size: 1.1rem; }
 }
