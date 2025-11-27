@@ -22,7 +22,7 @@ body {
 .hero {
   width: 100%;
   height: 420px; /* altura del hero */
-  background: url("../img/Imagen Final para Glowder.jpeg") center/cover no-repeat;
+  background: url("../img/Glowderr.png") center/cover no-repeat;
   border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
